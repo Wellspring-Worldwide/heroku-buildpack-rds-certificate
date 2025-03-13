@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 # bin/compile <build-dir> <cache-dir>
 
-BUILD_DIR=$1
 CERT_URL=https://truststore.pki.rds.amazonaws.com/global/global-bundle.pem
+PEM_FILE=$1/rds-combined-ca-bundle.pem
 
-echo "downloading ${CERT_URL}"
+echo "downloading ${CERT_URL} to ${PEM_FILE}"
 
-curl --silent ${CERT_URL} > $BUILD_DIR/rds-combined-ca-bundle.pem
+curl --silent ${CERT_URL} > ${PEM_FILE}
 exit $?
